@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<style type="text/css">
+        Body {
+            margin: 30px
+        }
+        Div {
+            color:  red;
+        }
+</style>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+	function clearMessage() {
+		 
+		document.getElementById("firstNumber").value = "";
+		document.getElementById("secondNumber").value = "";
+		hideMessage();
+		document.getElementById("result").innerHTML = "";
+		
+	}
+	
+	function showMessage() {
+		
+		 var x = document.getElementById("myDiv");		 
+		 x.style.display = "block";
+		  	
+	}
+	
+	function hideMessage() {
+		
+		 var x = document.getElementById("myDiv");		 
+		 x.style.display = "none";
+		  	
+	}
+	
+    function checkValue(number1, number2) {
+        var hasValue = false;
+        
+        if (($.isNumericnumber1) || ($.isNumericnumber2)) {
+            hasValue = true;
+        } 
+
+        return hasValue;
+    }
+
+    function multiplyBy() {
+     
+    	hideMessage();
+    	
+        var num1 = document.getElementById("firstNumber").value;
+        var num2 = document.getElementById("secondNumber").value;
+        if (checkValue(num1, num2)) {
+              var result = num1 * num2;    
+              document.getElementById("result").innerHTML = result;
+       
+        } else {
+            alert("Missing Numbers");
+            document.getElementById("result").innerHTML = "You messed up!";
+            showMessage();
+
+        }
+    }
+    function divideBy() {
+       
+    	hideMessage();
+    	
+        var num1 = document.getElementById("firstNumber").value;
+        var num2 = document.getElementById("secondNumber").value;
+        if (checkValue(num1, num2)) {
+              var result = num1 / num2;    
+              document.getElementById("result").innerHTML = result;              
+        } else {
+            alert("Missing Numbers");
+            document.getElementById("result").innerHTML = "You messed up!";
+            showMessage();
+        }
+    
+        document.getElementById("result").innerHTML = result;
+    }
+
+</script>
+
+<body onload=hideMessage()>
+
+	<br>
+	
+	<div id=myDiv>
+		YOU REALLY MESSED UP - MISSING NUMBERS!
+	</div>
+
+	<br>
+
+    <form>
+        1st number:
+        <input type="text" id="firstNumber"></input>
+        2nd number:
+        <input type="text" id="secondNumber"></input>
+        
+        <input type="button" onclick="multiplyBy()" value="Mulitply"></input>
+        <input type="button" onclick="divideBy()" value="Divide"></input>
+        <input type="button" onclick="clearMessage()" value="Clear" ></input>
+    </form>
+    <p>
+    	<br>
+        The result is : 
+        <br>
+        <span id="result"></span>
+
+    </p>
+
+</body>
+
+</html>

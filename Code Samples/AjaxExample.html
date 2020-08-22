@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+$('.btn').click(function() {
+	  
+	  $('.text').text('loading . . .');
+	  
+	  $.ajax({
+	    type:"GET",
+	    url:"https://api.meetup.com/2/cities",
+	    success: function(data) {
+	      $('.text').text(JSON.stringify(data));
+	    },
+	    dataType: 'jsonp',
+	  });
+	  
+	});
+
+});
+
+</script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajax - Json Example</title>
+</head>
+<body>
+
+<button type="button" class="btn">Click me!</button>
+<p class="text">Replace me!!</p>
+
+</body>
+</html>

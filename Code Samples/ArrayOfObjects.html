@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+
+
+		let products = [
+			  {
+			    name: "chair",
+			    inventory: 5,
+			    unit_price: 45.99
+			  },
+			  {
+			    name: "table",
+			    inventory: 10,
+			    unit_price: 123.75
+			  },
+			  {
+			    name: "sofa",
+			    inventory: 2,
+			    unit_price: 399.50
+			  }
+			];
+	
+	
+	function listProducts() {
+	  let product_names = [];
+	  for (let i=0; i<products.length; i+=1) {
+	   product_names.push(products[i].name);
+	  }
+	  
+	  alert("Products Names===>"+product_names);
+	  
+	  return ;
+	}
+	
+	
+	function totalValue() {
+	  let inventory_value = 0;
+	  for (let i=0; i<products.length; i+=1) {
+	    inventory_value += products[i].inventory * products[i].unit_price;
+	  }
+	  
+	  alert("Inventory_value===>"+inventory_value);
+	  
+	  return inventory_value;
+	}
+
+
+</script>
+<head>
+<meta charset="ISO-8859-1">
+<title>Inventtory System</title>
+</head>
+<body onload="buildInventory()">
+
+<input type="button" onclick="totalValue()" value="Get Total Values" ></input>
+<input type="button" onclick="listProducts()" value="List Productions" ></input>
+
+</body>
+</html>
